@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "esnext",
+    "lib": ["esnext", "dom"],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "typeRoots": ["node_modules/@types", "index.d.ts"],
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["./*"],
+      "@ui/*": ["./modules/ui/*"],
+      "@table/*": ["./modules/table/*"],
+      "@layout/*": ["./modules/layout/*"],
+      "@operations/*": ["./modules/operations/*"],
+      "@theme/*": ["./modules/theme/*"]
+    }
+  }
+}

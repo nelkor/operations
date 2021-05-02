@@ -1,0 +1,63 @@
+.table-row {
+  height: 50px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  border-bottom: solid 2px $color-table;
+
+  .date {
+    width: 140px;
+    opacity: .8;
+    font-size: 11px;
+    letter-spacing: -.4px;
+    font-weight: 500;
+  }
+
+  .operation {
+    width: 500px;
+    font-size: 13px;
+    letter-spacing: -.4px;
+    font-weight: 500;
+  }
+
+  .assessment {
+    font-size: 11px;
+    letter-spacing: -.28px;
+    display: flex;
+    align-items: center;
+
+    .sign {
+      width: 20px;
+      height: 10px;
+      border-radius: 5px;
+      margin-right: 10px;
+      background-color: $color-table;
+
+      &.positive {
+        background-color: $color-positive;
+      }
+
+      &.neutral {
+        background-color: $color-neutral;
+      }
+
+      &.negative {
+        background-color: $color-negative;
+      }
+    }
+
+    span.transparent {
+      opacity: 0.3;
+    }
+  }
+}
+
+.no-table-items {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  letter-spacing: -.2px;
+  font-weight: 500;
+}

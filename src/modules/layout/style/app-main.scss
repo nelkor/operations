@@ -1,0 +1,100 @@
+@keyframes loading1 {
+  from {
+    transform: rotateZ(360deg);
+  } to {
+    transform: rotateZ(0);
+  }
+}
+
+@keyframes loading2 {
+  from {
+    stroke-dasharray: 22;
+    stroke-dashoffset: 0;
+  } to {
+    stroke-dasharray: 22;
+    stroke-dashoffset: 44;
+  }
+}
+
+main {
+  width: 870px;
+  position: relative;
+  background-color: white;
+  flex-grow: 1;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+  box-sizing: border-box;
+  padding: 30px;
+
+  .title {
+    display: flex;
+    align-items: center;
+
+    svg {
+      fill: $color-icon;
+      margin: 0 4px 0 32px;
+      width: 30px;
+      height: 27px;
+    }
+
+    span {
+      color: $color-icon;
+      font-size: 11px;
+      letter-spacing: -.3px;
+    }
+  }
+
+  nav {
+    margin: 6px 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .table-link {
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: -.5px;
+      font-size: 11px;
+      line-height: 13px;
+      margin-right: 18px;
+      color: inherit;
+
+      &.router-link-active {
+        color: $color-icon-active;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 6;
+    opacity: .6;
+    transition: .6s;
+    display: flex;
+    justify-content: center;
+
+    svg {
+      margin-top: 140px;
+      width: 100px;
+      height: 100px;
+      fill: none;
+      animation: loading1 2s linear infinite;
+    }
+
+    circle {
+      stroke: black;
+      animation: loading2 2.2s infinite;
+    }
+
+    &.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}

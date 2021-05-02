@@ -1,0 +1,43 @@
+@import "./table-row";
+
+.table-head {
+  background-color: $color-table;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+
+  .link {
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: -.5px;
+    text-decoration: none;
+    color: inherit;
+
+    span {
+      margin-right: 6px;
+    }
+
+    svg {
+      fill: $color-icon;
+      transition: .2s;
+    }
+
+    &.asc svg {
+      fill: $color-icon-active;
+      transform: rotateZ(180deg);
+    }
+
+    &.desc svg {
+      fill: $color-icon-active;
+    }
+  }
+
+  .date {
+    width: 140px;
+  }
+
+  .operation {
+    width: 500px;
+  }
+}
