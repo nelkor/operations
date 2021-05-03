@@ -1,8 +1,14 @@
+@import './aside-head';
+
 .app-aside {
   display: flex;
   flex-direction: column;
 
   &.disabled {
     pointer-events: none;
+  }
+
+  .filler {
+    flex-grow: 1;
   }
 }

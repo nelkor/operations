@@ -3,6 +3,7 @@
     <div @click="closeAside" class="aside-bg" />
     <IconCross />
     <aside class="app-aside" :class="{ disabled: saving }">
+      <AsideHead />
       <select v-model="operationType">
         <option
           v-for="(name, index) in $options.operationsDictionary"
@@ -27,6 +28,7 @@
         </option>
       </select>
 
+      <div class="filler" />
       <button :disabled="!isOperationValid" @click="save">
         Сохранить операцию
       </button>
@@ -40,6 +42,7 @@ import { operationsDictionary } from '@operations/operations-mapper'
 import { asideAssessmentDictionary } from '@layout/aside-helpers'
 
 import { stringifyYmd } from '../aside-helpers'
+import AsideHead from './AsideHead.vue'
 
 export default {
   name: 'AppAside',
@@ -47,6 +50,7 @@ export default {
   asideAssessmentDictionary,
   components: {
     IconCross,
+    AsideHead,
   },
   data() {
     return {
