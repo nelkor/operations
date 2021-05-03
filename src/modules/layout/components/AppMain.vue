@@ -21,7 +21,7 @@
         >
       </div>
 
-      <PlusButton @click="openAside" text="Добавить операцию" />
+      <PlusButton @click="createOperation" text="Добавить операцию" />
     </nav>
 
     <router-view />
@@ -44,8 +44,8 @@ export default {
     },
   },
   methods: {
-    openAside() {
-      this.$store.commit('layout/setAppAsideOpen', true)
+    createOperation() {
+      this.$store.dispatch('operations/takeForEditing')
     },
   },
 }

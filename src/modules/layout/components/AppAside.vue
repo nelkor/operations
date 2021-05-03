@@ -2,7 +2,9 @@
   <div class="aside-wrapper" :class="{ open: isAppAsideOpen }">
     <div @click="closeAside" class="aside-bg" />
     <IconCross />
-    <aside />
+    <aside>
+      <span>{{ operation.id }}</span>
+    </aside>
   </div>
 </template>
 
@@ -17,6 +19,9 @@ export default {
   computed: {
     isAppAsideOpen() {
       return this.$store.state.layout.isAppAsideOpen
+    },
+    operation() {
+      return this.$store.state.operations.edit || {}
     },
   },
   methods: {

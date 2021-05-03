@@ -1,5 +1,5 @@
 <template>
-  <div class="table-row">
+  <div class="table-row" @click="onCLick(operation.id)">
     <div class="date">{{ operation.date }}</div>
     <div class="operation">{{ operation.name }}</div>
     <div class="assessment">
@@ -19,6 +19,11 @@ export default {
     operation: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    onCLick(id) {
+      this.$store.dispatch('operations/takeForEditing', id)
     },
   },
 }

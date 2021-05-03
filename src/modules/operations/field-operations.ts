@@ -20,13 +20,13 @@ const operations: Operation[] = [
     assessment: Assessment.SATISFACTORILY,
   },
   {
-    id: 'f112-o3',
+    id: 'f112-o2',
     type: OperationType.BOWLING,
     date: 20180326,
     area: 48.2,
   },
   {
-    id: 'f112-o2',
+    id: 'f112-o3',
     type: OperationType.RIGGING,
     date: 20180317,
     area: 47.5,
@@ -62,14 +62,12 @@ export const saveOperation = (
         ? operations.findIndex(o => o.id == operation.id)
         : -1
 
-      const operationToSave: Operation = { ...operation }
-
       if (operationIndex == -1) {
-        operations.push(operationToSave)
+        operations.push({ ...operation, id: `f112-o${operations.length}` })
       } else {
-        operations.splice(operationIndex, 1, operationToSave)
+        operations.splice(operationIndex, 1, operation)
       }
 
-      resolve(operationToSave)
+      resolve(operation)
     }, RESPONSE_DELAY)
   })
