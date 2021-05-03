@@ -1,6 +1,5 @@
 import { router } from '@/router'
 import { Operation } from '@operations/operations-types'
-import { currentYmd } from '@/modules/general/ymd'
 
 import { compareFunctions } from './sort'
 
@@ -20,6 +19,16 @@ export const sanitizeUrl = (mode: string, sort: string): void => {
   if (!isModeValid || !isSortValid) {
     router.replace({ name: 'table', params: defaultUrl }).then()
   }
+}
+
+const currentYmd = (): number => {
+  const now = new Date()
+
+  return +[
+    now.getFullYear(),
+    (now.getMonth() + 1).toString().padStart(2, '0'),
+    now.getDate().toString().padStart(2, '0'),
+  ].join('')
 }
 
 export const createModeFilter = (

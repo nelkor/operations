@@ -7,7 +7,7 @@ import {
   RenderOperation,
 } from '@operations/operations-types'
 
-const operationsDictionary: Record<OperationType, string> = {
+export const operationsDictionary: Record<OperationType, string> = {
   [OperationType.PLOWING]: 'Вспашка с оборотом пласта',
   [OperationType.BOWLING]: 'Боронование зяби и паров',
   [OperationType.FERTILIZATION]: 'Внесение удобрений',
