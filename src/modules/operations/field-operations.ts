@@ -50,7 +50,7 @@ const operations: Operation[] = [
 
 export const getOperations = (): Promise<Readonly<Readonly<Operation>[]>> =>
   new Promise(resolve => {
-    setTimeout(() => resolve(operations), RESPONSE_DELAY)
+    setTimeout(() => resolve([...operations]), RESPONSE_DELAY)
   })
 
 export const saveOperation = (

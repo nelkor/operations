@@ -2,7 +2,7 @@
   <div class="aside-wrapper" :class="{ open: isAppAsideOpen }">
     <div @click="closeAside" class="aside-bg" />
     <IconCross />
-    <aside class="app-aside">
+    <aside class="app-aside" :class="{ disabled: saving }">
       <select v-model="operationType">
         <option
           v-for="(name, index) in $options.operationsDictionary"
@@ -26,6 +26,10 @@
           {{ name }}
         </option>
       </select>
+
+      <button :disabled="!isOperationValid" @click="save">
+        Сохранить операцию
+      </button>
     </aside>
   </div>
 </template>
@@ -46,6 +50,7 @@ export default {
   },
   data() {
     return {
+      saving: false,
       operationType: null,
       date: null,
       area: null,
@@ -60,10 +65,33 @@ export default {
     operationId() {
       return this.$store.state.operations.edit
     },
+    isOperationValid() {
+      return this.operationType != null && this.date && this.area
+    },
   },
   methods: {
     closeAside() {
+      if (this.saving) {
+        return
+      }
+
       this.$store.commit('layout/setAppAsideOpen', false)
+    },
+    async save() {
+      this.saving = true
+
+      await this.$store.dispatch('operations/saveOperation', {
+        id: this.operationId,
+        type: this.operationType,
+        date: parseInt(this.date.replaceAll('-', '')),
+        area: this.area,
+        comment: this.comment,
+        assessment: this.assessment,
+      })
+
+      this.saving = false
+
+      this.closeAside()
     },
     setData() {
       const operation = this.$store.state.operations.operations.find(
