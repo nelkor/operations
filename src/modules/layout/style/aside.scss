@@ -11,6 +11,35 @@
   .filler {
     flex-grow: 1;
   }
+
+  .main-data {
+    height: 140px;
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  textarea {
+    height: 126px;
+    border: none;
+    border-top: solid 2px $color-table;
+    border-bottom: solid 2px $color-table;
+    resize: none;
+    outline: none;
+    box-sizing: border-box;
+    padding: 15px 20px;
+  }
+
+  h3 {
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 13px;
+    letter-spacing: -0.33px;
+    text-transform: uppercase;
+    margin: 11px 20px 15px;
+  }
 }
 
 .save-button {

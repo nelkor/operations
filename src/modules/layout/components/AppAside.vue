@@ -4,20 +4,23 @@
     <IconCross class="close-aside-cross" />
     <aside class="app-aside" :class="{ disabled: saving }">
       <AsideHead />
-      <select v-model="operationType">
-        <option
-          v-for="(name, index) in $options.operationsDictionary"
-          :key="index"
-          :value="index"
-        >
-          {{ name }}
-        </option>
-      </select>
 
-      <input type="date" v-model="date" />
-      <input type="number" v-model="area" step=".1" />
-      <textarea v-model="comment" />
+      <div class="main-data">
+        <SelectOperationType v-model="operationType" />
 
+        <input type="date" v-model="date" />
+        <input
+          type="number"
+          v-model="area"
+          min=".1"
+          step=".1"
+          placeholder="Задайте"
+        />
+      </div>
+
+      <textarea v-model="comment" placeholder="Комментарий к операции..." />
+
+      <h3>Качество выполнения операции</h3>
       <select v-model="assessment">
         <option
           v-for="(name, index) in $options.asideAssessmentDictionary"
@@ -40,20 +43,20 @@
 <script>
 import IconLoad from '@ui/icons/IconLoad.vue'
 import IconCross from '@ui/icons/IconCross.vue'
-import { operationsDictionary } from '@operations/operations-mapper'
 import { asideAssessmentDictionary } from '@layout/aside-helpers'
+import SelectOperationType from '@ui/components/SelectOperationType.vue'
 
 import { stringifyYmd } from '../aside-helpers'
 import AsideHead from './AsideHead.vue'
 
 export default {
   name: 'AppAside',
-  operationsDictionary,
   asideAssessmentDictionary,
   components: {
     IconCross,
     IconLoad,
     AsideHead,
+    SelectOperationType,
   },
   data() {
     return {
