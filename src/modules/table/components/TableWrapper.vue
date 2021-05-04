@@ -1,13 +1,6 @@
 <template>
   <div class="loader" :class="{ hidden: dataLoaded }">
-    <svg
-      width="10"
-      height="10"
-      viewBox="0 0 10 10"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle r="4" cx="5" cy="5" />
-    </svg>
+    <IconLoad />
   </div>
 
   <OperationsTable :operations="operations" />
@@ -21,12 +14,14 @@
 import { operationToRender } from '@operations/operations-mapper'
 import { sanitizeUrl, createModeFilter } from '@table/helpers/url'
 import { sortOperations } from '@table/helpers/sort'
+import IconLoad from '@ui/icons/IconLoad.vue'
 
 import OperationsTable from './OperationsTable.vue'
 
 export default {
   name: 'AppTable',
   components: {
+    IconLoad,
     OperationsTable,
   },
   computed: {

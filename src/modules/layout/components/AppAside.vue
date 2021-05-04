@@ -1,7 +1,7 @@
 <template>
   <div class="aside-wrapper" :class="{ open: isAppAsideOpen }">
     <div @click="closeAside" class="aside-bg" />
-    <IconCross />
+    <IconCross class="close-aside-cross" />
     <aside class="app-aside" :class="{ disabled: saving }">
       <AsideHead />
       <select v-model="operationType">
@@ -29,14 +29,16 @@
       </select>
 
       <div class="filler" />
-      <button :disabled="!isOperationValid" @click="save">
-        Сохранить операцию
+      <button class="save-button" :disabled="!isOperationValid" @click="save">
+        <IconLoad v-if="saving" />
+        <span v-else>Сохранить операцию</span>
       </button>
     </aside>
   </div>
 </template>
 
 <script>
+import IconLoad from '@ui/icons/IconLoad.vue'
 import IconCross from '@ui/icons/IconCross.vue'
 import { operationsDictionary } from '@operations/operations-mapper'
 import { asideAssessmentDictionary } from '@layout/aside-helpers'
@@ -50,6 +52,7 @@ export default {
   asideAssessmentDictionary,
   components: {
     IconCross,
+    IconLoad,
     AsideHead,
   },
   data() {
@@ -70,7 +73,7 @@ export default {
       return this.$store.state.operations.edit
     },
     isOperationValid() {
-      return this.operationType != null && this.date && this.area
+      return this.operationType != null && this.date && this.area > 0
     },
   },
   methods: {
@@ -93,9 +96,12 @@ export default {
         assessment: this.assessment,
       })
 
-      this.saving = false
+      // По окончанию анимации
+      setTimeout(() => {
+        this.saving = false
+      }, 200)
 
-      this.closeAside()
+      this.$store.commit('layout/setAppAsideOpen', false)
     },
     setData() {
       const operation = this.$store.state.operations.operations.find(

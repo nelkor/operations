@@ -63,7 +63,9 @@ export const saveOperation = (
         : -1
 
       if (operationIndex == -1) {
-        operations.push({ ...operation, id: `f112-o${operations.length}` })
+        operation.id = `f112-o${operations.length}`
+
+        operations.push(operation)
       } else {
         operations.splice(operationIndex, 1, operation)
       }

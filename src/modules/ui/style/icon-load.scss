@@ -1,0 +1,29 @@
+@keyframes loading1 {
+  from {
+    transform: rotateZ(360deg);
+  }
+  to {
+    transform: rotateZ(0);
+  }
+}
+
+@keyframes loading2 {
+  from {
+    stroke-dasharray: 22;
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dasharray: 22;
+    stroke-dashoffset: 44;
+  }
+}
+
+.icon-load {
+  animation: loading1 2s linear infinite;
+
+  circle {
+    fill: none;
+    stroke: black;
+    animation: loading2 2.2s infinite;
+  }
+}
