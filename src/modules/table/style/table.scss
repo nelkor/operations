@@ -1,4 +1,4 @@
-@import "./table-row";
+@import './table-row';
 
 .table-head {
   background-color: $color-table;
@@ -10,7 +10,7 @@
   .link {
     font-weight: 500;
     font-size: 11px;
-    letter-spacing: -.5px;
+    letter-spacing: -0.5px;
     text-decoration: none;
     color: inherit;
 
@@ -20,7 +20,7 @@
 
     svg {
       fill: $color-icon;
-      transition: .2s;
+      transition: 0.2s;
     }
 
     &.asc svg {

@@ -6,6 +6,7 @@
     "ts": "tsc --noemit",
     "lint": "eslint . --ext .ts,.vue --fix",
     "format-json": "prettier **/*.json .*rc --write",
+    "format-scss": "prettier **/*.scss --write",
     "build": "webpack",
     "serve": "webpack serve"
   },
