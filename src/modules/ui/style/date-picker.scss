@@ -1,0 +1,12 @@
+.date-picker input {
+  padding: 0 8px 0 2px;
+  position: relative;
+  overflow: visible;
+
+  &::-webkit-calendar-picker-indicator {
+    opacity: 0.8;
+    position: absolute;
+    top: -6px;
+    right: 8px;
+  }
+}

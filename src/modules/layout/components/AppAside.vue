@@ -8,14 +8,10 @@
       <div class="main-data">
         <SelectOperationType v-model="operationType" />
 
-        <input type="date" v-model="date" />
-        <input
-          type="number"
-          v-model="area"
-          min=".1"
-          step=".1"
-          placeholder="Задайте"
-        />
+        <div class="second-row">
+          <DatePicker v-model="date" class="second-row-item" />
+          <AreaInput v-model="area" class="second-row-item" />
+        </div>
       </div>
 
       <textarea v-model="comment" placeholder="Комментарий к операции..." />
@@ -45,8 +41,9 @@ import IconLoad from '@ui/icons/IconLoad.vue'
 import IconCross from '@ui/icons/IconCross.vue'
 import { asideAssessmentDictionary } from '@layout/aside-helpers'
 import SelectOperationType from '@ui/components/SelectOperationType.vue'
+import DatePicker from '@ui/components/DatePicker.vue'
+import AreaInput from '@ui/components/AreaInput.vue'
 
-import { stringifyYmd } from '../aside-helpers'
 import AsideHead from './AsideHead.vue'
 
 export default {
@@ -57,6 +54,8 @@ export default {
     IconLoad,
     AsideHead,
     SelectOperationType,
+    DatePicker,
+    AreaInput,
   },
   data() {
     return {
@@ -93,7 +92,7 @@ export default {
       await this.$store.dispatch('operations/saveOperation', {
         id: this.operationId,
         type: this.operationType,
-        date: parseInt(this.date.replaceAll('-', '')),
+        date: this.date,
         area: this.area,
         comment: this.comment,
         assessment: this.assessment,
@@ -113,7 +112,7 @@ export default {
 
       if (operation) {
         this.operationType = operation.type
-        this.date = stringifyYmd(operation.date)
+        this.date = operation.date
         this.area = operation.area
         this.comment = operation.comment
         this.assessment = operation.assessment

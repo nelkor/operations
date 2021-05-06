@@ -19,6 +19,16 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    .second-row {
+      display: flex;
+      justify-content: space-between;
+      height: 48px;
+
+      .second-row-item {
+        width: 138px;
+      }
+    }
   }
 
   textarea {

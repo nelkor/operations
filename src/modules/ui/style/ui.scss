@@ -1,3 +1,32 @@
 @import './plus-button';
 @import './icon-load';
 @import './select-operation-type';
+@import './date-picker';
+@import './area-input';
+
+.label {
+  font-weight: 500;
+  font-size: 8px;
+  line-height: 11px;
+  letter-spacing: -0.4px;
+  opacity: 0.7;
+  text-transform: uppercase;
+  margin-left: 5px;
+}
+
+.date-picker,
+.area-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 5px;
+  box-sizing: border-box;
+
+  input {
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: -0.8px;
+    border: none;
+    outline: none;
+  }
+}
