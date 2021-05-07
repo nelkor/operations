@@ -1,0 +1,45 @@
+.assessment-picker {
+  display: flex;
+  width: 288px;
+  height: 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+
+  button {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: -0.33px;
+    width: 96px;
+    border: none;
+    background-color: $color-bg;
+    outline: none;
+
+    &:first-child {
+      border-radius: 20px 0 0 20px;
+
+      &.active {
+        color: white;
+        background-color: $color-positive;
+      }
+    }
+
+    &:nth-child(2) {
+      border-left: solid 1px $color-divider;
+      border-right: solid 1px $color-divider;
+
+      &.active {
+        background-color: $color-neutral;
+      }
+    }
+
+    &:last-child {
+      border-radius: 0 20px 20px 0;
+
+      &.active {
+        color: white;
+        background-color: $color-negative;
+      }
+    }
+  }
+}

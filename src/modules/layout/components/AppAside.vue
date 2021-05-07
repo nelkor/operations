@@ -17,15 +17,9 @@
       <textarea v-model="comment" placeholder="Комментарий к операции..." />
 
       <h3>Качество выполнения операции</h3>
-      <select v-model="assessment">
-        <option
-          v-for="(name, index) in $options.asideAssessmentDictionary"
-          :key="index"
-          :value="index"
-        >
-          {{ name }}
-        </option>
-      </select>
+      <div class="assessment-picker-wrapper">
+        <AssessmentPicker v-model="assessment" />
+      </div>
 
       <div class="filler" />
       <button class="save-button" :disabled="!isOperationValid" @click="save">
@@ -39,16 +33,15 @@
 <script>
 import IconLoad from '@ui/icons/IconLoad.vue'
 import IconCross from '@ui/icons/IconCross.vue'
-import { asideAssessmentDictionary } from '@layout/aside-helpers'
 import SelectOperationType from '@ui/components/SelectOperationType.vue'
 import DatePicker from '@ui/components/DatePicker.vue'
 import AreaInput from '@ui/components/AreaInput.vue'
+import AssessmentPicker from '@ui/components/AssessmentPicker.vue'
 
 import AsideHead from './AsideHead.vue'
 
 export default {
   name: 'AppAside',
-  asideAssessmentDictionary,
   components: {
     IconCross,
     IconLoad,
@@ -56,6 +49,7 @@ export default {
     SelectOperationType,
     DatePicker,
     AreaInput,
+    AssessmentPicker,
   },
   data() {
     return {
