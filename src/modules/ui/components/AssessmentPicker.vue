@@ -3,8 +3,8 @@
     <button
       v-for="(name, index) in $options.asideAssessmentDictionary"
       :key="index"
-      @click="onClick(index)"
       :class="{ active: +index === modelValue }"
+      @click="onClick(index)"
     >
       {{ name }}
     </button>

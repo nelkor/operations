@@ -21,7 +21,7 @@
         >
       </div>
 
-      <PlusButton @click="createOperation" text="Добавить операцию" />
+      <PlusButton text="Добавить операцию" @click="createOperation" />
     </nav>
 
     <router-view />

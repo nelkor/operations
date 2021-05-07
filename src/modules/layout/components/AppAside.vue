@@ -1,6 +1,6 @@
 <template>
   <div class="aside-wrapper" :class="{ open: isAppAsideOpen }">
-    <div @click="closeAside" class="aside-bg" />
+    <div class="aside-bg" @click="closeAside" />
     <IconCross class="close-aside-cross" />
     <aside class="app-aside" :class="{ disabled: saving }">
       <AsideHead />
@@ -72,6 +72,18 @@ export default {
       return this.operationType != null && this.date && this.area > 0
     },
   },
+  watch: {
+    isAppAsideOpen: {
+      immediate: true,
+      handler(value) {
+        if (!value) {
+          return
+        }
+
+        this.setData()
+      },
+    },
+  },
   methods: {
     closeAside() {
       if (this.saving) {
@@ -117,18 +129,6 @@ export default {
         this.comment = null
         this.assessment = null
       }
-    },
-  },
-  watch: {
-    isAppAsideOpen: {
-      immediate: true,
-      handler(value) {
-        if (!value) {
-          return
-        }
-
-        this.setData()
-      },
     },
   },
 }

@@ -3,8 +3,8 @@
     <span class="label">Кол-во га к обработке</span>
 
     <input
-      type="number"
       v-model="innerValue"
+      type="number"
       min=".1"
       step=".1"
       placeholder="Задайте"

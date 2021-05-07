@@ -5,7 +5,7 @@
 
   <OperationsTable :operations="operations" />
 
-  <div class="no-table-items" v-if="dataLoaded && !operations.length">
+  <div v-if="dataLoaded && !operations.length" class="no-table-items">
     Нет операций
   </div>
 </template>

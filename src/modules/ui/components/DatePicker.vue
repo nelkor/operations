@@ -1,7 +1,7 @@
 <template>
   <div class="date-picker">
     <span class="label">Дата проведения</span>
-    <input type="date" v-model="innerValue" />
+    <input v-model="innerValue" type="date" />
   </div>
 </template>
 

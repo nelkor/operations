@@ -139,7 +139,9 @@
         "svg": "always",
         "math": "always"
       }
-    ]
+    ],
+    "vue/attributes-order": 2,
+    "vue/order-in-components": 2
   },
   "overrides": [
     {
