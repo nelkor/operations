@@ -1,6 +1,6 @@
 <template>
   <div class="aside-header">
-    <h2>Добавление операции</h2>
+    <h2>{{ empty ? 'Редактирование' : 'Добавление' }} операции</h2>
     <div class="sub">
       <div class="field">
         <IconField />
@@ -30,6 +30,12 @@ export default {
   components: {
     IconField,
     IconWheat,
+  },
+  props: {
+    empty: {
+      type: Boolean,
+      default: false,
+    },
   },
 }
 </script>

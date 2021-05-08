@@ -3,7 +3,7 @@
     <div class="aside-bg" @click="closeAside" />
     <IconCross class="close-aside-cross" />
     <aside class="app-aside" :class="{ disabled: saving }">
-      <AsideHead />
+      <AsideHead :empty="Boolean(operationId)" />
 
       <div class="main-data">
         <SelectOperationType v-model="operationType" />

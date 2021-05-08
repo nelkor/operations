@@ -28,14 +28,12 @@ export default {
   },
   watch: {
     innerValue(value) {
-      if (!value) {
-        return
-      }
-
-      this.$emit('update:modelValue', +value)
+      this.$emit('update:modelValue', value === '' ? null : +value)
     },
     modelValue(value) {
-      this.innerValue = value
+      if (+this.innerValue !== value) {
+        this.innerValue = value
+      }
     },
   },
 }

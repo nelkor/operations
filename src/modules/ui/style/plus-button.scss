@@ -3,12 +3,12 @@
   border-radius: 20px;
   padding: 12px 16px;
   box-sizing: border-box;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: none;
   background-color: white;
   display: flex;
   align-items: center;
-  transition: 0.2s;
+  transition: box-shadow 0.2s;
 
   svg {
     fill: $color-positive;
@@ -21,6 +21,6 @@
   }
 
   &:hover {
-    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.1));
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
   }
 }
